@@ -30,11 +30,8 @@
   <button id="btnSignOut" onclick="signOut()">Log Out</button>
   <button id="btnClose" onclick="closed()">Close</button>
 
-  <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
+  <!-- <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script> -->
   <script>
-
-
-
     async function runApp() {
     }
 
@@ -52,22 +49,10 @@
 
     function closed() {
     }
-    function getEnvironment(){
-      document.getElementById("os").append(liff.getOS())
-      document.getElementById("language").append(liff.getLanguage())
-      document.getElementById("language").append(liff.getVersion())
-      document.getElementById("language").append(liff.getAccessToken())
-      document.getElementById("language").append(liff.isInClient())
-      if(liff.isInClient()){
-        document.getElementById("btnMsg").style.display ="none"
-        document.getElementById("btnScanCode").style.display ="none"
-        document.getElementById("btnClose").style.display ="none"
-      }
-    }
 
     async function main() {
-      await liff.init({ liffId: "2004758001-zY7bxo3y" })
-      getEnvironment();
+      alert("LINE Developers x Skooldio")
+      await liff.init({ liffId: "YOUR-LIFF-ID" })
     }
     main()
   </script>

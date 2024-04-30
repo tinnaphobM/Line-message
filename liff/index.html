@@ -92,6 +92,16 @@
       }
     }
 
+    async function getUserProfile(){
+      const profile = await liff.getProfile()
+      console.log('profile',profile);
+      document.getElementById("pictureUrl").src = profile.pictureUrl
+      document.getElementById("userId").append(profile.userId)
+      document.getElementById("isInClient").append(profile.statusMessage)
+      document.getElementById("isInClient").append(profile.displayName)
+      
+    }
+
     async function main() {
       await liff.init({ liffId: "2004758001-zY7bxo3y" })
       getEnvironment();

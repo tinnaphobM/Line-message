@@ -32,32 +32,9 @@
 
   <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
   <script>
-  // Fetch JSON data from file
-  fetch('persons.json')
-    .then(response => response.json())
-    .then(data => {
-      // Find Samantha King in the data
-      var samantha = data.find(function(person) {
-        return person.name === "Samantha King";
-      });
 
-      // Display Samantha King's information
-      if (samantha) {
-        var personInfoDiv = document.getElementById("personInfo");
-        personInfoDiv.innerHTML = "<h2>Information for Samantha King:</h2>" +
-                                  "<p><strong>Name:</strong> " + samantha.name + "</p>" +
-                                  "<p><strong>ID:</strong> " + samantha.id + "</p>" +
-                                  "<p><strong>National ID:</strong> " + samantha.national_id + "</p>" +
-                                  "<p><strong>Email:</strong> " + samantha.email + "</p>";
-      } else {
-        // If Samantha King is not found in the data
-        var personInfoDiv = document.getElementById("personInfo");
-        personInfoDiv.innerHTML = "<p>Samantha King's information not found.</p>";
-      }
-    })
-    .catch(error => {
-      console.error('Error fetching data:', error);
-    });
+
+
     async function runApp() {
     }
 

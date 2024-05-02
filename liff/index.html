@@ -7,6 +7,7 @@
   </head>
   <body>
     <img id="pictureUrl" />
+    <input type="text" id="myInput" data-info="example data" />
     <p id="userId">ID:</p>
     <p id="displayName">Nameeeeee:</p>
     <p id="statusMessage">Status:</p>
@@ -34,6 +35,9 @@
 
     <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
     <script>
+      data = { name: "Tinnaphob" };
+      var myInput = document.getElementById("myInput");
+      console.log(myInput);
       // Fetch JSON data from file
       // fetch('persons.json')
       //   .then(response => response.json())
@@ -62,12 +66,12 @@
       //   });
       async function runApp() {}
 
-      function logOut(){
-        liff.logout()
-        window.location.reload()
+      function logOut() {
+        liff.logout();
+        window.location.reload();
       }
-      function closed(){
-        liff.closeWindow()
+      function closed() {
+        liff.closeWindow();
       }
       async function sendMsg() {
         if (liff.getContext().type !== "none") {
@@ -89,7 +93,7 @@
       function signOut() {}
 
       function closed() {
-        liff.closeWindow()
+        liff.closeWindow();
       }
       function getContext() {
         document.getElementById("type").append(liff.gerContext().type);
@@ -132,8 +136,8 @@
           getEnvironment();
           getUserProfile();
           getContext();
-        }else{
-          liff.login()
+        } else {
+          liff.login();
         }
       }
       main();

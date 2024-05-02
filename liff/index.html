@@ -65,7 +65,7 @@
     }
 
     async function sendMsg() {
-      if( liff.gerContext().type !== "none"){
+      if( liff.getContext().type !== "none"){
         await liff.sendMessage([
           {
             "type": "sticker",
@@ -73,7 +73,7 @@
             "packageId":1
           }
         ])
-            alert("message sent")
+          alert("message sent")
       }
     }
 

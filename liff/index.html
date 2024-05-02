@@ -17,14 +17,14 @@
   <p id="accessToken">AccessToken:</p>
   <p id="isLoggedIn">isLockIn</p>
   <p id="getAccessToken">ac</p>
-  <p id="getDecodedIDToken"></p>
+  <p id="decodedIDToken">Email:</p>
   <p id="getFriendship"></p>
-  <p id="type"></p>
-  <p id="viewType"></p>
-  <p id="utouId"></p>
-  <p id="roomId"></p>
-  <p id="groupId"></p>
-  <p id="scanCode"></p>
+  <p id="type">Type:</p>
+  <p id="viewType">viewType:</p>
+  <p id="utouId">utouId:</p>
+  <p id="roomId">roomId:</p>
+  <p id="groupId">groupId:</p>
+  <p id="scanCode">code:</p>
   <button id="btnMsg" onclick="sendMsg()">Send Message</button>
   <button onclick="openWindow()">Open Window</button>
   <button id="btnScanCode" onclick="scanCode()">Scan Code</button>
@@ -63,6 +63,16 @@
     }
 
     async function sendMsg() {
+      if( liff.gerContext().type !== "none"){
+        await liff.sendMessage([
+          {
+            "type": "sticker",
+            "stickerID":1,
+            "packageId":1
+          }
+        ])
+            alert("message sent")
+      }
     }
 
     function openWindow() {
@@ -75,6 +85,13 @@
     }
 
     function closed() {
+    }
+    function getContext(){
+      document.getElementById("type").append(liff.gerContext().type)
+      document.getElementById("viewType").append(liff.gerContext().viewType)
+      document.getElementById("utouId").append(liff.gerContext().utouId)
+      document.getElementById("roomId").append(liff.gerContext().roomId)
+      document.getElementById("groupId").append(liff.gerContext().groupId)
     }
     function getEnvironment(){
       document.getElementById("os").append(liff.getOS())
@@ -99,13 +116,16 @@
       document.getElementById("userId").append(profile.userId)
       document.getElementById("statusMessage").append(profile.statusMessage)
       document.getElementById("displayName").append(profile.displayName)
-      
+      document.getElementById("decodedIDToken").append(liff.getDecodedIDToken().email)
     }
+
 
     async function main() {
       await liff.init({ liffId: "2004758001-zY7bxo3y" })
       getEnvironment();
       getUserProfile();
+      getContext();
+      sendMsg();
     }
     main()
   </script>

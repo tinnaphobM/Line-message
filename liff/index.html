@@ -7,15 +7,15 @@
 </head>
 <body>
   <img id="pictureUrl">
-  <p id="userId"></p>
-  <p id="displayName"></p>
-  <p id="statusMessage"></p>
-  <p id="os">OS</p>
+  <p id="userId">ID:</p>
+  <p id="displayName">Name:</p>
+  <p id="statusMessage">Status:</p>
+  <p id="os">OS:</p>
   <p id="language">Language:</p>
   <p id="version">Version:</p>
   <p id="isInClient">isInClient:</p>
   <p id="accessToken">AccessToken:</p>
-  <p id="isLoggedIn"></p>
+  <p id="isLoggedIn">isLockIn</p>
   <p id="getAccessToken">ac</p>
   <p id="getDecodedIDToken"></p>
   <p id="getFriendship"></p>
@@ -97,8 +97,8 @@
       console.log('profile',profile);
       document.getElementById("pictureUrl").src = profile.pictureUrl
       document.getElementById("userId").append(profile.userId)
-      document.getElementById("isInClient").append(profile.statusMessage)
-      document.getElementById("isInClient").append(profile.displayName)
+      document.getElementById("statusMessage").append(profile.statusMessage)
+      document.getElementById("displayName").append(profile.displayName)
       
     }
 

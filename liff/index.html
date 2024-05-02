@@ -7,7 +7,10 @@
   </head>
   <body>
     <img id="pictureUrl" />
-    <input type="text" id="myInput" data-info="example data" />
+    <input id="num" />
+    <button type="button" onclick="myFunction()">Submit</button>
+    <p id="demo"></p>
+    <p id="result"></p>
     <p id="userId">ID:</p>
     <p id="displayName">Nameeeeee:</p>
     <p id="statusMessage">Status:</p>
@@ -36,8 +39,10 @@
     <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
     <script>
       data = { name: "Tinnaphob" };
-      var myInput = document.getElementById("myInput");
-      console.log('my in put',myInput);
+      function myFunction() {
+        let x = document.getElementById("numb").value;
+        document.getElementById("demo").innerHTML = x;
+      }
       // Fetch JSON data from file
       // fetch('persons.json')
       //   .then(response => response.json())
